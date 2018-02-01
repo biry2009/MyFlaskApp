@@ -1,8 +1,52 @@
 .footer{
     background-color: darkblue;
-    min-height: 160px;
+    width: 100%;
+    height: 160px;
+    bottom:0px;
+    left:0px;
 }
 
 .err-image{
     width: 100%;
+}
+
+
+.navbar {
+	position:relative;
+	min-height:75px;
+	margin-bottom:20px;
+	border:none;
+    box-shadow: 4px 4px 5px #888888;
+
+}
+
+.navbar-brand {
+	float:left;
+	height:75px;
+	padding:15px 15px;
+	font-size:18px;
+	line-height:20px
+}
+
+.navbar-toggle {
+  /* (80px - button height 34px) / 2 = 23px */
+  margin-top: 20.5px;
+  padding: 9px 10px !important;
+}
+
+@media (min-width:768px) {
+	.navbar {
+	border-radius:1px
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    /* (80px - line-height of 27px) / 2 = 26.5px */
+    padding-top: 24px;
+    padding-bottom: 24px;
+    line-height: 27px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: Arial, Helvetica, sans-serif;
+  }
 }
