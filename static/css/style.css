@@ -43,7 +43,7 @@
 
 @media (min-width:768px) {
 	.navbar {
-	border-radius:1px
+	border-radius:0;
 }
 
 @media (min-width: 768px) {
@@ -59,8 +59,18 @@
 }
 
 .copy-right-note {
+    border-top: 1px solid #888888;
     padding: 20px;
     margin-top: 10px;
+}
+
+.footer-menu-title {
+    font-size:1.5em;
+    line-height: 24px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: indianred;
+    padding-left: 40px;
 }
 
 .footer-menu-list{
