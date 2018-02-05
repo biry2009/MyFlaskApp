@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    {% if title %}
-        <title>{{ title }} - DomainHut.com</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+    {% if domain_name %}
+        <title>{{ domain_name }} - DomainHut.com</title>
     {% else %}
         <title>The home page</title>
     {% endif %}
     <meta name="description" content="In this post, Perrin looks into the new webmasters trend of 2018: Using your visitor&#039;s computers to mine crypto currencies." />
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-
     <link rel="canonical" href="https://backlinko.com/google-rankbrain-seo" />
 
 
 
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" type="text/css"/>
 
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+               "dom": 'tp'
+            });
+
+            var table = $('#example').DataTable();
+
+            $('#search-domain').keyup(function () {
+                table.search($(this).val()).draw();
+            })
+        });
+    </script>
      {% block head %}{% endblock %}
 </head>
 <body>
@@ -44,7 +59,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="/price">Prices<span class="sr-only">(current)</span></a></li>
+                <li><a href="{{ url_for('home_page') }}">Home</a></li>
                 <li><a href="{{ url_for('review_page') }}">Review</a></li>
                 <li><a href="{{ url_for('contact_page') }}">Contact</a></li>
                 <li><a href="{{ url_for('about_page') }}">About</a></li>
@@ -54,16 +69,41 @@
     <!-- /.container-fluid -->
 </nav>
 
-{% block body %}{% endblock %}
+<div class="container-fluid">
+    <div class="row">
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, est, nemo. Ab atque commodi consequatur culpa doloribus eos, facilis ipsum magnam numquam officia quam quisquam rem repudiandae, sit, veritatis. Molestias.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ducimus enim eum exercitationem inventore iste itaque laborum laudantium magni minima natus neque optio perspiciatis porro, ratione, rem repellat sit suscipit.</p>
+    </div>
+</div>
+
+{% block body %}{% endblock %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ducimus enim eum exercitationem
+                inventore iste itaque laborum laudantium magni minima natus neque optio perspiciatis porro, ratione, rem
+                repellat sit suscipit.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ducimus enim eum exercitationem
+                inventore iste itaque laborum laudantium magni minima natus neque optio perspiciatis porro, ratione, rem
+                repellat sit suscipit.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ducimus enim eum exercitationem
+                inventore iste itaque laborum laudantium magni minima natus neque optio perspiciatis porro, ratione, rem
+                repellat sit suscipit.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ducimus enim eum exercitationem
+                inventore iste itaque laborum laudantium magni minima natus neque optio perspiciatis porro, ratione, rem
+                repellat sit suscipit.</p>
+
+        </div>
+    </div>
+</div>
 
 <footer class="footer">
     <div class="container-fluid">
-        <div class="row ">
+        <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <p class="footer-menu-title">Contact Us</p>
                     <ul class="footer-menu-list">
                         <li><a href="#"><i class="icon-home"></i> Home</a></li>
@@ -72,7 +112,7 @@
                         <li><a href="#"><i class="icon-cogs"></i> Settings</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <p class="footer-menu-title">Contact Us</p>
                     <ul class="footer-menu-list">
                         <li><a href="#"><i class="icon-home"></i> Home</a></li>
@@ -81,7 +121,7 @@
                         <li><a href="#"><i class="icon-cogs"></i> Settings</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <p class="footer-menu-title">Contact Us</p>
                     <ul class="footer-menu-list">
                         <li><a href="#"><i class="icon-home"></i> Home</a></li>
@@ -90,7 +130,7 @@
                         <li><a href="#"><i class="icon-cogs"></i> Settings</a></li>
                     </ul>
                 </div>
-               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+               <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                    <p class="footer-menu-title">Contact Us</p>
                    <p>support-team@mythemeshop.com</p>
                 </div>
@@ -98,7 +138,7 @@
         </div>
         <div class="row">
             <div class="copy-right-note text-center">
-                <p>© DomainHunt.com 2012-2018 Made with <i style="color:red;" class="icon-heart "></i> using
+                <p>© DomainHunt.com 2012-2018 Made with <i style="color:#ee5253;" class="icon-heart "></i> using
                     WordPress.</p>
             </div>
         </div>
